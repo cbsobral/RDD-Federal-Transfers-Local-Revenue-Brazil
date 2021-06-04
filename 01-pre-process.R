@@ -28,10 +28,10 @@ tcu_2018 <- read_csv("raw_data/tcu_2018.csv", col_types = cols(indice = col_skip
 
 
 #gdp 12-18
-gdp <- read_csv("raw_data/gdp.csv", col_types = cols(`Município` = col_skip()))
+gdp <- read_csv("raw_data/gdp.csv", col_types = cols(`MunicÃ­pio` = col_skip()))
 
 # area 
-area <- read_csv("raw_data/area.csv", col_types = cols(`Município` = col_skip()))
+area <- read_csv("raw_data/area.csv", col_types = cols(`MunicÃ­pio` = col_skip()))
 
 # fpm 
 fpm <- read_delim("raw_data/fpm.csv", ";", 
@@ -115,6 +115,7 @@ area$codibge <- as.numeric(area$codibge)
 # joing with df_main
 df_main <- merge(df_main, area, by = c("codibge"))
 
+
 # New Variables -----------------------------------------------------------
 
 df_main <- df_main %>% 
@@ -137,7 +138,7 @@ df_main <- df_main %>%
 
 
 # Add FPM -----------------------------------------------------------------
-# 
+
 ## remove last digit
 fpm$codibge <- strtrim(fpm$codibge, 6)
 fpm$codibge <- as.numeric(fpm$codibge)
