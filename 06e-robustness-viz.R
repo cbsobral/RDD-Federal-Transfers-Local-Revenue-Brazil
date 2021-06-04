@@ -22,7 +22,6 @@ extrafont::loadfonts(quiet = TRUE, device = 'pdf')
 
 # All Estimates -------------------------------------------------------------
 
-
 three <- c('#005b96',"#E41A1C")
 
 robustness$sub <- factor(robustness$sub, levels = c('Pooled', 'South', 'Southeast', 'Higher GDP'))
