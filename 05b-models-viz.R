@@ -47,6 +47,7 @@ all_p$rdplot + theme_set(theme_ipsum_ps()) +
   theme(plot.margin = unit(c(0.2,0.2,0.2,0.2), "cm"), plot.title = element_text(size = 12))
 dev.off()
 
+
 # Region ------------------------------------------------------------------
 
 # north

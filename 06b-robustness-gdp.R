@@ -25,6 +25,21 @@ df_pool <- df_pool  %>%
 df_dev <- split(df_pool, df_pool$develop)
 
 
+# Years -------------------------------------------------------------------
+
+# with 2018
+w2018 <- rdrobust(y = df_dev[["1"]]$logo_rev, x = df_dev[["1"]]$pop_0, covs = cbind(as.factor(df_dev[["1"]]$uf), 
+                                                                                    as.factor(df_dev[["1"]]$year)))
+
+# without 2012
+df_2012 <- df_dev[["1"]] %>% 
+  filter(year != 2018) %>% 
+  filter(year != 2012)
+
+wt2012 <- rdrobust(y = df_2012$logo_rev, x = df_2012$pop_0, covs = cbind(as.factor(df_2012$uf), 
+                                                                         as.factor(df_2012$year)))
+
+
 # Fixed Effects -----------------------------------------------------------
 
 df_dev[["1"]] <- df_dev[["1"]] %>% 
@@ -76,22 +91,6 @@ p2 <- rdrobust(y = df_dev[["1"]]$logo_rev, x = df_dev[["1"]]$pop_0, p = 2, all =
 
 p3 <- rdrobust(y = df_dev[["1"]]$logo_rev, x = df_dev[["1"]]$pop_0, p = 3, all = T,
                covs = cbind(as.factor(df_dev[["1"]]$uf), as.factor(df_dev[["1"]]$year)))
-
-
-# Years -------------------------------------------------------------------
-
-# with 2018
-w2018 <- rdrobust(y = df_dev[["1"]]$logo_rev, x = df_dev[["1"]]$pop_0, covs = cbind(as.factor(df_dev[["1"]]$uf), 
-                                                                                    as.factor(df_dev[["1"]]$year)))
-
-# without 2012
-df_2012 <- df_dev[["1"]] %>% 
-  filter(year != 2018) %>% 
-  filter(year != 2012)
-
-wt2012 <- rdrobust(y = df_2012$logo_rev, x = df_2012$pop_0, covs = cbind(as.factor(df_2012$uf), 
-                                                                         as.factor(df_2012$year)))
-
 
 
 # Prints ------------------------------------------------------------------
