@@ -1,0 +1,45 @@
+﻿coef;inf;sup;model;sub;point
+-0.301;-0.472;-0.13;Baseline;Higher GDP;true
+-0.241;-0.428;-0.054;No Fixed Effects;Higher GDP;false
+-0.769;-0.979;-0.559;No Movement;Higher GDP;false
+-0.024;-0.335;0.287;H = 0.5;Higher GDP;false
+-0.278;-0.448;-0.108;H = 1.5;Higher GDP;false
+0.134;-0.048;0.316;C = + 350;Higher GDP;false
+0.057;-0.109;0.224;C = - 350;Higher GDP;false
+-0.3;-0.488;-0.111;P = 2;Higher GDP;false
+-0.178;-0.356;0;P = 3;Higher GDP;false
+-0.243;-0.409;-0.078;With 2018;Higher GDP;false
+-0.195;-0.39;0;Without 2012;Higher GDP;false
+-0.188;-0.307;-0.069;Baseline;Pooled;true
+-0.181;-0.307;-0.056;No Fixed Effects;Pooled;false
+-0.429;-0.582;-0.275;No Movement;Pooled;false
+-0.037;-0.267;0.193;H = 0.5;Pooled;false
+-0.191;-0.32;-0.062;H = 1.5;Pooled;false
+0.111;-0.015;0.237;C = + 350;Pooled;false
+0.04;-0.095;0.174;C = - 350;Pooled;false
+-0.18;-0.323;-0.037;P = 2;Pooled;false
+-0.198;-0.359;-0.038;P = 3;Pooled;false
+-0.162;-0.275;-0.048;With 2018;Pooled;false
+-0.155;-0.286;-0.024;Without 2012;Pooled;false
+-0.479;-0.69;-0.268;Baseline;Southeast;true
+-0.548;-0.774;-0.321;No Fixed Effects;Southeast;false
+-0.937;-1.168;-0.706;No Movement;Southeast;false
+-0.569;-1.013;-0.125;H = 0.5;Southeast;false
+-0.454;-0.694;-0.215;H = 1.5;Southeast;false
+-0.042;-0.238;0.153;C = + 350;Southeast;false
+0.036;-0.18;0.252;C = - 350;Southeast;false
+-0.504;-0.757;-0.251;P = 2;Southeast;false
+-0.458;-0.72;-0.195;P = 3;Southeast;false
+-0.42;-0.624;-0.217;With 2018;Southeast;false
+-0.435;-0.676;-0.194;Without 2012;Southeast;false
+-0.233;-0.465;0;Baseline;South;true
+-0.273;-0.508;-0.039;No Fixed Effects;South;false
+-0.833;-1.113;-0.554;No Movement;South;false
+-0.134;-0.532;0.264;H = 0.5;South;false
+-0.239;-0.493;0.014;H = 1.5;South;false
+0.235;0.019;0.451;C = + 350;South;false
+-0.196;-0.438;0.046;C = - 350;South;false
+-0.233;-0.485;0.02;P = 2;South;false
+-0.266;-0.542;0.009;P = 3;South;false
+-0.209;-0.433;0.016;With 2018;South;false
+-0.174;-0.429;0.08;Without 2012;South;false

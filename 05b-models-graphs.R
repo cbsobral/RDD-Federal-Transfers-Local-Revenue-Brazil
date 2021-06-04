@@ -12,6 +12,8 @@ load('data/cifpm.Rda')
 df_pool <- df_pool %>% 
   filter(year != 2018)
 
+outcomes <- read_delim("data/outcomes.csv", 
+                      ";", escape_double = FALSE, trim_ws = TRUE)
 
 import_plex_sans()
 theme_set(theme_ipsum_ps())
@@ -144,27 +146,24 @@ dev.off()
 
 # All Estimates -------------------------------------------------------------
 
-outcome <- read_delim("data/outcome.csv", 
-                      ";", escape_double = FALSE, trim_ws = TRUE)
-
-three <- c("#E41A1C",'#005b96', '#31a354')
-
-outcome$label <- factor(outcome$label, levels = c("Above Median", "Below Median", 
+outcomes$label <- factor(outcomes$label, levels = c("Higher GDP", "Lower GDP", 
                                                   "Southeast", "South", "Central-West", 
                                                   "Northeast", "North","Pooled" ))
 
-outcome$subsample <- factor(outcome$subsample , levels = c('baseline', 'region', 'gdp'))
+outcomes$subsample <- factor(outcomes$subsample , levels = c('baseline', 'region', 'gdp'))
+
+three <- brewer.pal(3,"Set1")
 
 
 tiff("figures/outcomes.tiff", units = "in", width = 7, height = 3.5, res = 300)
-outcome %>%  
+outcomes %>%  
 ggplot(aes(x = outcome, y = label, color = subsample)) + 
   geom_vline(xintercept = 0, colour = "black", lty = 2) + 
   geom_point(size = 2) +
-  geom_errorbar(aes(xmin = inf, xmax = sup), width = .4,
+  geom_errorbar(aes(xmin = inf, xmax = sup), width = .4, colour = "gray20", size = 0.7, alpha = 0.5,
                 position = position_dodge(0.05)) +
-  labs(title = "", x = "Estimated Treatment Effects", y = "Subsample") +
-  scale_colour_manual(values = three, name = '', labels = c('Baseline', 'Region', 'GDP')) +
+  labs(title = "", x = "Estimated Treatment Effects", y = "") +
+  scale_colour_manual(values = three, name = '', labels = c('Entire Sample', 'Region', 'GDP')) +
   theme_ipsum_ps() +
   theme(legend.position = 'bottom', plot.margin = unit(c(0.2,0.2,0.2,0.2), "cm"),
         plot.title = element_text(size = 12))

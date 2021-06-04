@@ -28,7 +28,7 @@ df_pool <- df_pool %>%
 
 nofe <- rdrobust(y = df_pool$logo_rev, x = df_pool$pop_0, all = T)
 
-
+summary(nofe)
 # False Cutoffs -----------------------------------------------------------
 
 m350 <- rdrobust(y = df_pool$logo_rev, x = df_pool$pop_0, c = -350,

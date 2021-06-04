@@ -21,6 +21,20 @@ df_pool <- df_pool %>%
   filter(region == "South")
 
 
+# Years -------------------------------------------------------------------
+
+# with 2018
+w2018 <- rdrobust(y = df_pool$logo_rev, x = df_pool$pop_0, covs = cbind(as.factor(df_pool$uf), 
+                                                                        as.factor(df_pool$year)))
+# without 2012
+df_2012 <- df_pool %>% 
+  filter(year != 2018) %>%
+  filter(year != 2012)
+
+wt2012 <- rdrobust(y = df_2012$logo_rev, x = df_2012$pop_0, all = T,
+                   covs = cbind(as.factor(df_2012$uf), as.factor(df_2012$year)))
+
+summary(wt2012)
 # Fixed Effects -----------------------------------------------------------
 
 df_pool <- df_pool %>% 
@@ -64,7 +78,7 @@ df_no_change <- df_pool %>%
 
 no_change <- rdrobust(y = df_no_change$logo_rev, x = df_no_change$pop_0, all = T,
                  covs = cbind(as.factor(df_no_change$uf), as.factor(df_no_change$year)))
-
+summary(no_change)
 
 # Polynomial --------------------------------------------------------------
 
@@ -74,20 +88,6 @@ p2 <- rdrobust(y = df_pool$logo_rev, x = df_pool$pop_0, p = 2, all = T,
 p3 <- rdrobust(y = df_pool$logo_rev, x = df_pool$pop_0, p = 3, all = T,
                covs = cbind(as.factor(df_pool$uf), as.factor(df_pool$year)))
 
-
-# Years -------------------------------------------------------------------
-
-# with 2018
-w2018 <- rdrobust(y = df_pool$logo_rev, x = df_pool$pop_0, covs = cbind(as.factor(df_pool$uf), 
-                                                                        as.factor(df_pool$year)))
-
-# without 2012
-df_2012 <- df_pool %>% 
-  filter(year != 2018) %>% 
-  filter(year != 2012)
-
-wt2012 <- rdrobust(y = df_2012$logo_rev, x = df_2012$pop_0, covs = cbind(as.factor(df_2012$uf), 
-                                                                         as.factor(df_2012$year)))
 
 # Prints ------------------------------------------------------------------
 
